@@ -320,9 +320,9 @@ public class Representor<T, S> {
 			 * @param  modelFunction the function used to get the related model
 			 * @return the builder's step
 			 */
-			public <S> FirstStep addLinkedModel(
-				String key, Class<S> modelClass,
-				Function<T, Optional<S>> modelFunction) {
+			public <S, U> FirstStep addLinkedModel(
+				String key, Class<? extends Representable<U, S>> modelClass,
+				Function<T, S> modelFunction) {
 
 				_representor._relatedModels.add(
 					new RelatedModel<>(key, modelClass, modelFunction));
